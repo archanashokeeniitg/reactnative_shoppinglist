@@ -12,8 +12,7 @@ const ListItem = ({item, deleteItem}) => {
           style={styles.icon}
           name="delete"
           size={20}
-          color="firebrick"
-          // onPress={() => alert(item.id)}
+          color="purple"
           onPress={() => deleteItem(item.id)}
         />
       </View>
@@ -31,12 +30,9 @@ const styles = StyleSheet.create({
     // borderColor: '#DEBBFD',
   },
   listItemView: {
-    alignItems: 'center',
-    flexDirection: 'row',
+    padding: 5,
   },
   icon: {
-    //alignItems: 'center',
-    paddingRight: 50,
     alignSelf: 'flex-end',
   },
 });

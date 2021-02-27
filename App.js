@@ -39,7 +39,7 @@ const App = () => {
         style={styles.image}
         source={{
           uri:
-            'https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
+            'https://images.pexels.com/photos/971360/pexels-photo-971360.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
         }}
       />
       <AddItem addItem={addItem} />
