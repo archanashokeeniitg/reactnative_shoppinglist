@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import {View, Text, Image, StyleSheet, FlatList} from 'react-native';
+import {View, Text, Image, StyleSheet, FlatList, Alert} from 'react-native';
 import ListItem from './components/ListItem';
+import AddItem from './components/AddItem';
 import Header from './components/Header';
 import 'react-native-get-random-values';
 import {v4 as uuid} from 'uuid';
@@ -22,6 +23,15 @@ const App = () => {
       return items.filter((item) => item.id != id);
     });
   };
+  const addItem = (text) => {
+    if (!text) {
+      Alert.alert('Error', 'missing Fields');
+    } else {
+      setItems((prevItems) => {
+        return [{id: uuid(), text: text}, ...prevItems];
+      });
+    }
+  };
   return (
     <View style={styles.container}>
       <Header title="Shopping List" />
@@ -32,15 +42,13 @@ const App = () => {
             'https://images.pexels.com/photos/730547/pexels-photo-730547.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500',
         }}
       />
-
+      <AddItem addItem={addItem} />
       <FlatList
         data={items}
         renderItem={({item}) => (
           <ListItem item={item} deleteItem={deleteItem} />
         )}
       />
-
-      <Text></Text>
     </View>
   );
 };
